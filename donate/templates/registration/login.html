@@ -1,0 +1,49 @@
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+    <div class="container reg-cen">
+        <div class="row">
+            <!-- Empty div -->
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                {% if form.errors %}
+                    <p> Password or Username is incorrect </p>
+                {% endif %}
+                <div class="card card-default">
+
+                    <div class="card-heading">
+                        <h1 class="text-center my-font">Sign In</h1>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+
+                        <form  action="/accounts/login/" method="post">
+                            {% csrf_token %}
+                            {% bootstrap_form form%}
+
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                            </div>
+
+                            <input type="hidden" name="next" value="{% url 'index' %}">
+
+                        </form>
+
+                    </div>
+
+                </div>
+                <br>
+                <div class="card">
+                    <br>
+                    <center><p class="text-muted">Don't have an account? <a href="/"> Sign up</a></p></center>
+                </div>
+
+            </div>
+            <!-- empty div -->
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+{% endblock %}

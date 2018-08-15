@@ -7,7 +7,7 @@ User = get_user_model()
 
 
 def index(request):
-    return render(request,'donor/index.html')
+    return render(request,'registration/index.html')
 
 
 def donorsignup(request):
@@ -20,4 +20,4 @@ def donorsignup(request):
             return redirect('/')
     else:
         form = DonorSignupForm()
-    return render(request,'donor/donorsignup.html',{"form":form})
+    return render(request,'registration/donorsignup.html',{"form":form})

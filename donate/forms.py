@@ -6,4 +6,4 @@ User = get_user_model()
 class DonorSignupForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'phone_number', 'gender', 'blood_type')
+        fields = ('first_name', 'last_name', 'username', 'phone_number', 'gender', 'blood_type')
