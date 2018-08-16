@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.conf.urls.static import static
-from django.contrib.auth import views as authviews
+from django.contrib.auth import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('donate.urls')),
-    url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^logout/$', authviews.logout, {"next_page": '/'}, name = "logout"),
+    url(r'', include('donate.urls')),
+    url('accounts/', include('django.contrib.auth.urls')),
+    url(r'^logout/$', views.logout, {"next_page": '/'}),
 ]

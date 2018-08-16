@@ -1,9 +1,8 @@
 from django.conf.urls import url
 from . import views
-from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib.auth import views as auth_views
 
 urlpatterns=[
-    url(r'^$',views.banksignup, name = 'bank-signup'),
+    url(r'^$', views.index, name='index'),
+    url(r'signup/donor/',views.donorsignup, name = 'donor-signup'),
+    url(r'signup/bank/',views.banksignup, name = 'bank-signup'),
 ]

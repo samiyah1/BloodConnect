@@ -1,0 +1,29 @@
+{% extends 'registration/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="contain">
+            <p class="sign">Sign up</p>
+            <hr>
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <p class="in">
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <small style="display: none">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+                {% endfor %}
+                <button type="submit" class="btn btn-outline-info down">Sign</button>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}
