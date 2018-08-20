@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from donate.models import Profile
-from .forms import DonorSignupForm, DonationForm
+from .forms import DonorSignupForm, DonationForm,BankSignupForm
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -25,7 +25,7 @@ def donorsignup(request):
 
 def banksignup(request):
     if request.method == 'POST':
-        form = DonorSignupForm(request.POST)
+        form = BankSignupForm(request.POST)
         if form.is_valid():
             user = form.save(commit = False)
             user.is_active =True
@@ -34,7 +34,7 @@ def banksignup(request):
             user.save()
             return redirect('/')
     else:
-        form = DonorSignupForm()
+        form = BankSignupForm()
     return render(request,'registration/banksignup.html', { "form":form })
 
 
