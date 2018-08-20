@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'donate',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -77,10 +79,17 @@ WSGI_APPLICATION = 'bloodbank.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
          'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'connect',
         'USER': 'mariam',
     'PASSWORD':'bloodbank',
+=======
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'connect',
+        'USER': 'victor',
+        'PASSWORD': 'victor8504',
+>>>>>>> 7cce9d6361a167de4b6f237f59e5cb996aac6d05
     }
 }
 
@@ -109,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -122,3 +131,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = "donate.User"
