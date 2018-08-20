@@ -1,14 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'registration/base.html' %}
 {% load bootstrap4 %}
-
+{% load static %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1> BloodConnect </h1>
-            {% csrf_token %}
-            {% bootstrap_form form %}
-        </div>
-    </div>
-</div>
+{% if user.is_authenticated %}
+<p>it works</p>
+{% else %}
+<p>shit dont work</p>
+{% endif %}
+
 {% endblock %}
