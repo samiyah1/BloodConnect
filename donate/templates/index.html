@@ -2,10 +2,12 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
-{% if user.is_authenticated %}
-<p>it works</p>
+{% if user.is_authenticated and user.is_donor%}
+<p>it works donor</p>
+{% elif user.is_authenticated and user.is_bbank %}
+<p>shit works bbank</p>
 {% else %}
-<p>shit dont work</p>
+<p>shit aint working</p>
 {% endif %}
 
 {% endblock %}
