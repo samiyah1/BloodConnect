@@ -3,7 +3,7 @@ from django.contrib.auth import forms as auth_forms
 from django.contrib.auth.forms import UserCreationForm
 from . models import BloodBank, Donation
 from django.contrib.auth import get_user_model
-import datetime 
+import datetime
 
 User = get_user_model()
 class DonorSignupForm(UserCreationForm):
