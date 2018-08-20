@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+from donate.models import Profile
 from .forms import DonorSignupForm,BankSignupForm
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -29,3 +31,10 @@ def donorsignup(request):
     else:
         form = DonorSignupForm()
     return render(request,'registration/donorsignup.html', { "form":form })
+
+
+def showdonorprofile(request,user_id):
+    users = User.objects.filter(id=user_id)
+    profiles = Profile.objects.filter(user=users)
+    print(profiles)
+    return render(request,'don/showdon.html',{"profiles":profiles,"users":users})
