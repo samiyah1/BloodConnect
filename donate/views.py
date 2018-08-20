@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.contrib.auth.decorators import login_required
 from donate.models import Profile
 from .forms import DonorSignupForm,BankSignupForm
 from django.contrib.auth import get_user_model
@@ -8,8 +8,6 @@ User = get_user_model()
 # Create your views here.
 def home(request):
     return render(request,'home.html')
-def index(request):
-    return render(request,'registration/index.html')
 
 def banksignup(request):
     if request.method == 'POST':
@@ -40,3 +38,6 @@ def showdonorprofile(request,user_id):
     profiles = Profile.objects.filter(user=users)
     print(profiles)
     return render(request,'don/showdon.html',{"profiles":profiles,"users":users})
+@login_required
+def index(request):
+    return render(request,'index.html')
