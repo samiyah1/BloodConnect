@@ -24,7 +24,7 @@
                             {% bootstrap_form form%}
 
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                                <input type="submit" class="btn btn-danger btn-sm" value="Login">
                             </div>
 
                             <input type="hidden" name="next" value="{% url 'index' %}">
@@ -37,7 +37,7 @@
                 <br>
                 <div class="card">
                     <br>
-                    <center><p class="text-muted">Don't have an account? <a href="/"> Sign up</a></p></center>
+                    <center><p class="text-muted">Don't have an account? <a href="{%url 'donor-signup' %}"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button></a></p></center>
                 </div>
 
             </div>
