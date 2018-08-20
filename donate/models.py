@@ -3,7 +3,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-import datetime
+# import datetime
 
 
 # Create your models here.
@@ -59,6 +59,7 @@ class BloodBank(models.Model):
    password = models.CharField(max_length=50)
 
 class Donation(models.Model):
-    location = models.CharField(max_length = 255)
-    starts_at = models.DateTimeField(auto_now_add = True)
-    ends_at = models.DateTimeField(auto_now_add = True)
+    message = models.CharField(max_length = 255)
+    location = models.CharField(max_length = 50)
+    starts_at = models.DateField()
+    ends_at = models.DateField()
