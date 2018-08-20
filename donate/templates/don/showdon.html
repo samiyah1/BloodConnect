@@ -1,0 +1,15 @@
+{% extends 'registration/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+    {% for profile in profiles %}
+        {{profile.user.username}}
+        {{profile.user.gender}}
+        {{profile.user.blood_type}}
+    {% endfor %}
+{% else %}
+<p>shit dont work</p>
+{% endif %}
+
+{% endblock %}

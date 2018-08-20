@@ -48,4 +48,3 @@ class DonationForm(forms.ModelForm):
 
     starts_at = forms.DateField(widget = forms.DateInput(attrs = {'type':'date'}))
     ends_at = forms.DateField(widget = forms.DateInput(attrs = {'type':'date'}))
-
