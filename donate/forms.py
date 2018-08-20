@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth import forms as auth_forms
 from django.contrib.auth.forms import UserCreationForm
-from . models import BloodBank
+from . models import BloodBank, Donation
 from django.contrib.auth import get_user_model
+import datetime 
 
 User = get_user_model()
 class DonorSignupForm(UserCreationForm):
@@ -39,3 +40,12 @@ class BankSignupForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class DonationForm(forms.ModelForm):
+    # location = forms.CharField(max_length = 100)
+    # starts_at = forms.DateTimeField(auto_now_add = True, required = True)
+    # ends_at = forms.DateTimeField(auto_now_add = True, required = True)
+
+    model = Donation
+    fields = ('location', 'starts_at', 'ends_at')
