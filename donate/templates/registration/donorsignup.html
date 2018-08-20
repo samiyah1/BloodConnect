@@ -4,7 +4,10 @@
 {% block content %}
     <div class="container-fluid">
         <div class="contain">
-            <p class="sign">Sign up</p>
+          <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+        <div id="id01" class="modal">
+       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <h2 class="sign">Sign up</h2>
             <hr>
             <form method="post">
                 {% csrf_token %}
@@ -20,10 +23,24 @@
                         {% endfor %}
                     </p>
                 {% endfor %}
-                <button type="submit" class="btn btn-outline-info down">Sign</button>
+                <div class="clearfix">
+       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+       <button type="submit" class="signupbtn">Sign Up</button>
+     </div>
+
             </form>
         </div>
 
     </div>
+    <script>
+    // Get the modal
+    var modal = document.getElementById('id01');
 
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
 {% endblock %}
