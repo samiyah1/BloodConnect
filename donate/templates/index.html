@@ -3,6 +3,11 @@
 {% load static %}
 {% block content %}
 {% if user.is_authenticated and user.is_donor%}
+    {% for drive in drives %}
+<p>Location :  <span>{{drive.location}}</span></p>
+<p>Start :  <span>{{drive.starts_at}}</span></p>
+<p>End  :  <span>{{drive.ends_at}}</span></p>
+    {% endfor %}
 <p>it works donor</p>
 {% elif user.is_authenticated and user.is_bbank %}
 <p>shit works bbank</p>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from donate.models import Profile
+from donate.models import Profile, Donation
 from .forms import DonorSignupForm, DonationForm,BankSignupForm
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -54,7 +54,9 @@ def showdonorprofile(request,user_id):
     users = User.objects.filter(id=user_id)
     profiles = Profile.objects.filter(user=users)
     print(profiles)
-    return render(request,'don/showdon.html',{"profiles":profiles,"users":users})
+    return redirect('/')
 @login_required
 def index(request):
-    return render(request,'index.html')
+    drives = Donation.objects.all()
+    print(drives)
+    return render(request,'index.html',{"drives":drives})
