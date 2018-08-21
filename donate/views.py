@@ -50,13 +50,11 @@ def donation(request):
         form = DonationForm()
     return render(request, 'dashboard.html', {'form':form})
 
-def showdonorprofile(request,user_id):
-    users = User.objects.filter(id=user_id)
-    profiles = Profile.objects.filter(user=users)
-    print(profiles)
-    return redirect('/')
 @login_required
 def index(request):
     drives = Donation.objects.all()
+    users = request.user
+    profiles = Profile.objects.filter(user=users)
+    print(profiles)
     print(drives)
-    return render(request,'index.html',{"drives":drives})
+    return render(request,'index.html',{"drives":drives,"users":users,"profiles":profiles})
