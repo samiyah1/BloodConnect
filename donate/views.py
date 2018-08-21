@@ -39,10 +39,13 @@ def banksignup(request):
 
 
 def donation(request):
+    current_user = request.user
     if request.method == 'POST':
-        form = DonationForm(request.POST)
+        form = DonationForm(request.POST,request.FILES)
         if form.is_valid():
-            pass
+            donation = form.save(commit=False)
+            donation.user = current_user
+            donation.save()
     else:
         form = DonationForm()
     return render(request, 'dashboard.html', {'form':form})
