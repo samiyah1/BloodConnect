@@ -6,6 +6,8 @@
 <p>it works donor</p>
 {% elif user.is_authenticated and user.is_bbank %}
 <p>shit works bbank</p>
+
+<a href="{% url 'donation' %}"><button class="btn btn-outline-info">post drive</button></a>
 {% else %}
 <p>shit aint working</p>
 {% endif %}
