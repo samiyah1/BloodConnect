@@ -4,17 +4,24 @@
 {% block content %}
 {% if user.is_authenticated and user.is_donor%}
     {% for drive in drives %}
-<p>Location :  <span>{{drive.location}}</span></p>
-<p>Start :  <span>{{drive.starts_at}}</span></p>
-<p>End  :  <span>{{drive.ends_at}}</span></p>
-    {% endfor %}
-<p>it works donor</p>
-{% elif user.is_authenticated and user.is_bbank %}
-<p>shit works bbank</p>
+        <br>
+        <h5 class=drive_message><span>{{drive.message}}</span></h5>
+        <p>Location :  <span>{{drive.location}}</span></p>
+        <p>Start :  <span>{{drive.starts_at}}</span></p>
+        <p>End  :  <span>{{drive.ends_at}}</span></p>
+        <br>
 
-<a href="{% url 'donation' %}"><button class="btn btn-outline-info">post drive</button></a>
-{% else %}
-<p>shit aint working</p>
-{% endif %}
+    {% endfor %}
+        
+
+    {% elif user.is_authenticated and user.is_bbank %}
+
+    <br><br><br><br>
+    <a href="{% url 'donation' %}"><button class="btn btn-outline-info" style="color:white;"><h1><strong>POST DRIVE</strong></h1></button></a>
+
+    {% else %}
+    <p>Donation drive is not available at the moment</p>
+
+    {% endif %}
 
 {% endblock %}
