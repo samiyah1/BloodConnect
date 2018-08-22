@@ -50,10 +50,12 @@ def donation(request):
     else:
         form = DonationForm()
     return render(request, 'dashboard.html', {'form':form})
-
-
+    
 @login_required
 def index(request):
     drives = Donation.objects.all()
+    users = request.user
+    profiles = Profile.objects.filter(user=users)
+    print(profiles)
     print(drives)
-    return render(request,'index.html',{"drives":drives})
+    return render(request,'index.html',{"drives":drives,"users":users,"profiles":profiles})
