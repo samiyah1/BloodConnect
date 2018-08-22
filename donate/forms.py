@@ -35,7 +35,7 @@ class BankSignupForm(forms.ModelForm):
 
     def save(self, commit = True):
         user = super(BankSignupForm, self).save(commit = False)
-        user.set_password(self.cleaned_data["password1"])
+        user.password = self.cleaned_data["password1"]
         if commit:
             user.save()
         return user

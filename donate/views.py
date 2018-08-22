@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from donate.models import Profile
 from .forms import DonorSignupForm,BankSignupForm, DonationForm
 from django.contrib.auth import get_user_model
+
 User = get_user_model()
 
 # Create your views here.
@@ -48,6 +49,7 @@ def showdonorprofile(request,user_id):
     profiles = Profile.objects.filter(user=users)
     print(profiles)
     return render(request,'don/showdon.html',{"profiles":profiles,"users":users})
+
 @login_required
 def index(request):
     return render(request,'index.html')
