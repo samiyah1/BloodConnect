@@ -8,36 +8,38 @@
             <!-- Empty div -->
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                {% if form.errors %}
-                    <p> Password or Username is incorrect </p>
-                {% endif %}
-                <div class="card card-default">
-
-                    <div class="card-heading">
-                        <h1 class="text-center my-font">Sign In</h1>
-                    </div>
+                
+                <div class="container">
+                    <h1 class="text-center my-font" style="color:white;"><strong>SIGN IN</strong></h1>
                     <hr>
-                    <div class="card-body">
 
-                        <form  action="/accounts/login/" method="post">
-                            {% csrf_token %}
-                            {% bootstrap_form form%}
+                    <form  action="/accounts/login/" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form%}
 
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-danger btn-sm" value="Login">
-                            </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-dark btn-md" value="LOG IN">
+                        </div>
 
-                            <input type="hidden" name="next" value="{% url 'index' %}">
+                        <input type="hidden" name="next" value="{% url 'index' %}">
+                    </form>
+                </div>
 
-                        </form>
+                <br>
+                
+                <div class="container">
+                    <br>
+                    <h4 class="text-center" style="color:white;"><strong> Don't have an account ?  </strong></h4>
+                    <hr>
+                    <div class="container-fluid">
+                    {% comment %} <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><a class=""href="{%url 'donor-signup' %}">Donor</a></button> 
+                    | <a href="{% url 'bank-signup' %}"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Blood Bank</button></a> {% endcomment %}
+                    <a class="btn btn-dark" href="{%url 'donor-signup' %}"> DONOR</a>
+                    <a class="btn btn-dark" href="{%url 'bank-signup' %}"> BLOOD BANK</a>
+
 
                     </div>
-
-                </div>
-                <br>
-                <div class="card">
                     <br>
-                    <center><p class="text-muted">Don't have an account? <a href="{%url 'donor-signup' %}"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button></a></p></center>
                 </div>
 
             </div>
