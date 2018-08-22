@@ -55,3 +55,7 @@ class Donation(models.Model):
     location = models.CharField(max_length = 50)
     starts_at = models.DateField()
     ends_at = models.DateField()
+
+class Attend(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE, related_name="attend")
+    location = models.ForeignKey(Donation)

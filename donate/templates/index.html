@@ -3,24 +3,33 @@
 {% load static %}
 {% block content %}
 {% if user.is_authenticated and user.is_donor%}
-    {% for drive in drives %}
-        <br>
-        <h5 class=drive_message><span>{{drive.message}}</span></h5>
-        <p>Location :  <span>{{drive.location}}</span></p>
-        <p>Start :  <span>{{drive.starts_at}}</span></p>
-        <p>End  :  <span>{{drive.ends_at}}</span></p>
-        <br>
 
+<div class="container">
+    <h1>donation drive info</h1>
+        {% for drive in drives %}
+<p>Location :  <span>{{drive.location}}</span></p>
+<p>Start :  <span>{{drive.starts_at}}</span></p>
+<p>End  :  <span>{{drive.ends_at}}</span></p>
     {% endfor %}
-        
-
-    {% elif user.is_authenticated and user.is_bbank %}
-
-    <br><br><br><br>
-    <a href="{% url 'donation' %}"><button class="btn btn-outline-info" style="color:white;"><h1><strong>POST DRIVE</strong></h1></button></a>
-
-    {% else %}
-    <p>Donation drive is not available at the moment</p>
+</div>
+<div class="container">
+    <h1>profile info</h1>
+        {% for profile in profiles %}
+        {{profile.user.username}}
+        {{profile.user.gender}}
+        {{profile.user.blood_type}}
+    {% endfor %}
+</div>
+<p>it works donor</p>
+{% elif user.is_authenticated and user.is_bbank %}
+<div class="container">
+    <h1>profile info</h1>
+        {% for profile in profiles %}
+        {{profile.user.username}}
+        {{profile.user.location}}
+    {% endfor %}
+</div>
+<p>shit works bbank</p>
 
     {% endif %}
 
