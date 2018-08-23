@@ -40,4 +40,4 @@ def showdonorprofile(request,user_id):
     return render(request,'don/showdon.html',{"profiles":profiles,"users":users})
 @login_required
 def index(request):
-    return render(request,'index.html')
+    return render(request,'dona/index.html')
