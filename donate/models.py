@@ -1,9 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.core.validators import RegexValidator
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-import datetime
 
 
 # Create your models here.
@@ -36,7 +34,9 @@ class User(AbstractUser):
         (AB_NEGATIVE,'AB -')
     )
     blood_type = models.CharField(max_length=20,null=True,choices=BLOOD_GROUPS)
-
+    location = models.CharField(max_length=100)
+    is_donor = models.BooleanField(default=False)
+    is_bbank = models.BooleanField(default=False)
 
 class Profile(models.Model):
    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
@@ -50,15 +50,12 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
    instance.profile.save()
 
-class BloodBank(models.Model):
-   username = models.CharField(max_length = 130)
-   location = models.CharField(max_length = 100)
-   email = models.EmailField()
-   phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+254123456789'. Up to 15 digits allowed.")
-   phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
-   password = models.CharField(max_length=50)
-
 class Donation(models.Model):
-    location = models.CharField(max_length = 255)
-    starts_at = models.DateTimeField(auto_now_add = True)
-    ends_at = models.DateTimeField(auto_now_add = True)
+    message = models.CharField(max_length = 255)
+    location = models.CharField(max_length = 50)
+    starts_at = models.DateField()
+    ends_at = models.DateField()
+
+class Attend(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE, related_name="attend")
+    location = models.ForeignKey(Donation)

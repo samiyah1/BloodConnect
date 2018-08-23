@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<script>
+    $(function() {
+        $( ".datepicker" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1900:2020",
+            // You can put more options here.
+
+        });
+    });
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> BloodConnect </h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-outline-success btn-lg" value="post">
+                <input type="hidden" name="next" value="/">
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
