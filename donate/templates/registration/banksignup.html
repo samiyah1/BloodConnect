@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="contain">
 
-            <h2 class="sign">Sign up</h2>
+            <h2 class="sign">SIGN UP</h2>
             <hr>
             <form method="post">
                 {% csrf_token %}
@@ -22,9 +22,9 @@
                     </p>
                 {% endfor %}
                 <div class="clearfix">
-       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-       <button type="submit" class="signupbtn">Sign Up</button>
-     </div>
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a href="/accounts/login/">CANCEL</a></button>
+                    <button type="submit" class="signupbtn"><a href="/accounts/login/"> SIGN UP</a></button>
+                </div>
 
             </form>
         </div>
