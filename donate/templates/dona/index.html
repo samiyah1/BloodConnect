@@ -1,0 +1,12 @@
+{% extends 'dona/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<p>it works</p>
+{% else %}
+<p>shit dont work</p>
+{% endif %}
+
+
+{% endblock %}
