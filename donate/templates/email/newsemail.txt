@@ -1,0 +1,3 @@
+Hello {{ first_name }}
+
+Welcome to the Blood Connect app. You will find the most informative facts about blood donation in Kenya.
