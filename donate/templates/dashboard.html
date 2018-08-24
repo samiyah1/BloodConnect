@@ -10,23 +10,30 @@
             changeYear: true,
             yearRange: "1900:2020",
             // You can put more options here.
-
         });
     });
 </script>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h1> BloodConnect </h1>
+        
+        <div class="col-md-3"></div>
+        
+        <div class="col-md-6 border">
+            <br>
+            <h1 class="text-center"> BLOOD CONNECT </h1>
+            
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}
-                <input type="submit" class="btn btn-outline-success btn-lg" value="post">
+                <input type="submit" class="btn btn-dark btn-lg" value="Post" style="text-align:center;">
                 <input type="hidden" name="next" value="/">
             </form>
-
+            <br>
         </div>
+        
+        
+        <div class="col-md-3"></div>
     </div>
 </div>
 {% endblock %}

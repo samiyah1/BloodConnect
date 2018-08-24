@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  @font-face {
-    font-family: 'CallunaRegular';
-    src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot');
-    src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.woff') format('woff'),
-         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.ttf') format('truetype'),
-         url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.svg#CallunaRegular') format('svg');
-}
-blockquote {
-		width: 565px;
-		font: 2.65em CallunaRegular;
-		letter-spacing: .075em;
-		float: left;
-		padding: 45px 0 30px 25px;
-		margin: 0;
-		border-top: 2px dotted #858585;
-		border-bottom: 2px dotted #858585;
-		-webkit-transform: rotate(-3deg);
-		-moz-transform: rotate(-3deg);
+    @font-face {
+        font-family: 'CallunaRegular';
+        src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot');
+        src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.woff') format('woff'), url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.ttf') format('truetype'), url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.svg#CallunaRegular') format('svg');
+    }
+
+    blockquote {
+        width: 565px;
+        font: 2.65em CallunaRegular;
+        letter-spacing: .075em;
+        float: left;
+        padding: 45px 0 30px 25px;
+        margin: 0;
+        border-top: 2px dotted #858585;
+        border-bottom: 2px dotted #858585;
+        -webkit-transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
 	}
   </style>
 </head>
 <body>
-  <div class="container-fluid">
-      <nav class="navbar fixed-top navbar-expand-lg">
-          <a class="navbar-brand" href="#!"><blockquote>
-			<strong>CBlood</strong></blockquote></a>
-
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-                  <li class="nav-item active">
-                  <a class="nav-link" href="/accounts/login/">Donor <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link" href="#!">Blood Banks</a>
-                  </li>
-              </ul>
-          </div>
-      </nav>
-      </div>
+    <div class="container-fluid">
+        <nav class="navbar fixed-top navbar-expand-lg">
+            <div class="col-md-3">
+                <a class="navbar-brand" href="#"><strong>CBlood</strong></a> 
+            </div>
+          
+            <div class="col-md-6"></div>
+            
+            <div class="col-md-3">
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="/accounts/login/">Donor <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/accounts/login/">Blood Banks</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 </nav>
 </body>
 </html>
