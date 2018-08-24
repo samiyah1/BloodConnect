@@ -3,32 +3,74 @@
 {% load static %}
 {% block content %}
 {% if user.is_authenticated and user.is_donor%}
+<h2>Vertical Tabs</h2>
 
-<div class="container">
-    <h1>donation drive info</h1>
-        {% for drive in drives %}
-<p>Location :  <span>{{drive.location}}</span></p>
-<p>Start :  <span>{{drive.starts_at}}</span></p>
-<p>End  :  <span>{{drive.ends_at}}</span></p>
-    {% endfor %}
+
+<div class="tab">
+  <form>
+    <input type="text" name="search" placeholder="Search..">
+  </form>
+
+
+  <button class="tablinks" onclick="openCity(event, 'profile')" id="defaultOpen">Profile</button>
+  <button class="tablinks" onclick="openCity(event, 'drives')">Donation drives</button>
+  <button class="tablinks" onclick="openCity(event, 'attend')">Attend donation</button>
 </div>
-<div class="container">
-    <h1>profile info</h1>
-        {% for profile in profiles %}
-        {{profile.user.username}}
-        {{profile.user.gender}}
-        {{profile.user.blood_type}}
-    {% endfor %}
+<div id="Profile" class="tabcontent">
+      <h1>Profile Info</h1>
+          {% for profile in profiles %}
+        <p>username:  {{profile.user.username}}</p>
+
+      <p>   Gender: {{profile.user.gender}}</p>
+          <p> Blood type:{{profile.user.blood_type}}</p>
+      {% endfor %}
+  </div>
+<div id="drives" class="tabcontent">
+  <div class="container">
+      <h1>donation drive info</h1>
+          {% for drive in drives %}
+  <p>Location :  <span>{{drive.location}}</span></p>
+  <p>Start :  <span>{{drive.starts_at}}</span></p>
+  <p>End  :  <span>{{drive.ends_at}}</span></p>
+      {% endfor %}
+  </div>
 </div>
-<p>it works donor</p>
-{% elif user.is_authenticated and user.is_bbank %}
-<div class="container">
-    <h1>profile info</h1>
-        {% for profile in profiles %}
-        {{profile.user.username}}
-        {{profile.user.location}}
-    {% endfor %}
+
+
 </div>
+
+<div id="attend" class="tabcontent">
+  <p>it works donor</p>
+  {% elif user.is_authenticated and user.is_bbank %}
+  <div class="container">
+      <h1>profile info</h1>
+          {% for profile in profiles %}
+          {{profile.user.username}}
+          {{profile.user.location}}
+      {% endfor %}
+  </div>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
 <p>shit works bbank</p>
 
     {% endif %}
