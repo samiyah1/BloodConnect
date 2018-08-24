@@ -20,7 +20,7 @@
         {{profile.user.blood_type}}
     {% endfor %}
 </div>
-<p>it works donor</p>
+
 {% elif user.is_authenticated and user.is_bbank %}
 <div class="container">
     <h1>profile info</h1>
@@ -29,7 +29,7 @@
         {{profile.user.location}}
     {% endfor %}
 </div>
-<p>shit works bbank</p>
+
 
     {% endif %}
 
