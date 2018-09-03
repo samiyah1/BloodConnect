@@ -1,52 +1,50 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    @font-face {
-        font-family: 'CallunaRegular';
-        src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot');
-        src: url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.woff') format('woff'), url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.ttf') format('truetype'), url('http://tangledindesign.com/codepen/fonts/Calluna-Regular-webfont.svg#CallunaRegular') format('svg');
-    }
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+<style>
+.navbar-text{
+  font-size: 50px;
 
-    blockquote {
-        width: 565px;
-        font: 2.65em CallunaRegular;
-        letter-spacing: .075em;
-        float: left;
-        padding: 45px 0 30px 25px;
-        margin: 0;
-        border-top: 2px dotted #858585;
-        border-bottom: 2px dotted #858585;
-        -webkit-transform: rotate(-3deg);
-        -moz-transform: rotate(-3deg);
-	}
-  </style>
+  font-family: 'Nosifer', cursive;
+  color:red;
+}
+.navbar {
+  background-color: transparent !important;
+}
+.bgimg {
+  height: 600px;
+  background-image:url('{% static "images/ithnk.jpg"%}');
+  background-attachment: fixed;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color:black;
+  opacity: 0.5;
+}
+</style>
 </head>
-<body>
-    <div class="container-fluid">
-        <nav class="navbar fixed-top navbar-expand-lg">
-            <div class="col-md-3">
-                <a class="navbar-brand" href="#"><strong>CBlood</strong></a> 
-            </div>
-          
-            <div class="col-md-6"></div>
-            
-            <div class="col-md-3">
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-                        <li class="nav-item active">
-                        <a class="nav-link" href="/accounts/login/">Donor <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="/accounts/login/">Blood Banks</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<body >
+
+  <nav class="navbar fixed-top navbar-expand-md ">
+    <a class="navbar-brand"><image src="static/images/drop.png"style="width:80px;height:80px;"></a>
+    <span class="navbar-text">CBLOOD</span>
+    <div class="collapse navbar-collapse" id="navbarNav">
+   <ul class="nav navbar-nav ml-auto">
+     <li class="nav-item active">
+       <li><a href="/accounts/login"><button type="button" class="btn btn-danger btn-small btn-nav">Sign In</button></a></li>
+
+     </li>
+
+   </ul>
+
+  </nav>
+    <div class="container-fluid bgimg">
+
     </div>
-</nav>
+
 </body>
 </html>
